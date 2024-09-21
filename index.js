@@ -36,6 +36,25 @@ app.post("/exercicio1/", (req, res) => {
     res.status(201).json({ resultadoPost: resultado })
 })
 
+
+app.post("/exercicio15/", (req, res) => {
+    // http://localhost:3000/exercicio1
+    const { a, b, c } = req.body
+
+    if ((a + b < c) || (a + c < b) || (b + c < a) ){
+        resultado = 'Nao é um triangulo'
+    } else if ((a == b) || (a == c)) {
+        resultado = 'Equilatero'
+    } else if ((a==b) || (a==c) || (b==c)) {
+        resultado = 'Isósceles'
+    } else {
+        resultado = 'Escaleno'
+    }
+
+    // informar um status diferente de 200 (pesquisar sobre 😊)
+    res.status(201).json({ resultado })
+})
+
 app.listen(3000, () => {
     console.log('servidor está rodando na porta 3000')
 })
