@@ -1,4 +1,4 @@
-const { somar, calculaSalario } = require('../service/exercicios')
+const { somar, calculaSalario } = require('../src/services/exercicios')
 const { describe, it, expect } = require('@jest/globals')
 
 describe('Testes da função somar: ', () => {
@@ -29,13 +29,13 @@ describe('Testes da função somar: ', () => {
     })
 
     it('Somar um número com uma letra', () => {
-        const resultado = somar(1, 'a');
-        expect(resultado).toBe('Informe um número')
+        const funSomar = () => somar(1, 'a');
+        expect(funSomar).toThrow('Informe um número')
     })
     
     it('Somar uma letra com um número', () => {
-        const resultado = somar('b', 2);
-        expect(resultado).toBe('Informe um número')
+        const funSomar = () => somar('b', 2);
+        expect(funSomar).toThrow('Informe um número')
     })
     
 })
