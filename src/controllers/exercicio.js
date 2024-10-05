@@ -24,10 +24,6 @@ class ControllerExercicio {
         }
     }
 
-    Peso(req, res) {
-        // eiuhaieuhaeui
-    }
-
     Triangulo(req, res) {
         try {
             const { a, b, c } = req.body

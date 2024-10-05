@@ -13,10 +13,6 @@ class ServiceExercicio {
         return valorHora * horasTrabalhadas
     }
 
-    Peso() {
-        // sudhasidhduhai:
-    }
-
     VerificaTriangulos(a, b, c) {
         if (!a || !b || !c) {
             return "Não é um triangulo"
