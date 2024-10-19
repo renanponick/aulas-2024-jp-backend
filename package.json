@@ -1,0 +1,16 @@
+{
+  "name": "aulas-2024-jp-backend",
+  "version": "1.0.0",
+  "description": "Aulas para o JP referente a Backend em NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "test": "jest --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "jest": "^29.7.0"
+  }
+}
