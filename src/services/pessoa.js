@@ -5,17 +5,44 @@ class ServicePessoa {
     async GetPessoas() {
         return ModelPessoa.findAll()
     }
-    CreatePessoa(name) {
-        // fazer verificações - se mandou o name
-        return ModelPessoa.CreatePessoa(name)
+    async CreatePessoa(name, password, email) {
+        if(!name || !password || !email){
+            throw new Error("Favor preencher todos os dados!")
+        }
+        return ModelPessoa.create({ name, password, email })
     }
-    UpdatePessoa(id, name) {
-        // fazer verificações - se mandou o id e o name
-        return ModelPessoa.UpdatePessoa(id, name)
+    async UpdatePessoa(id, name, password, email) {
+        if(!id) {
+            throw new Error("Favor informar o Id")
+        }
+        const pessoa = await ModelPessoa.findByPk(id)
+        if(!pessoa) {
+            throw new Error("Pessoa não encontrada")
+        }
+        pessoa.name = name || pessoa.name
+        pessoa.password = password || pessoa.password
+        pessoa.email = email || pessoa.email
+
+        pessoa.save()
+        return pessoa
+        // if(!name || !password || !email){
+        //     throw new Error("Favor preencher todos os dados!")
+        // }
+        // return ModelPessoa.update(
+        //     { name, password, email },
+        //     { where: { id } }
+        // )
     }
-    DeletePessoa(id) {
-        // fazer verificações - se mandou o id
-        return ModelPessoa.DeletePessoa(id)
+    async DeletePessoa(id) {
+        if(!id) {
+            throw new Error("Favor informar o Id")
+        }
+        const pessoa = await ModelPessoa.findByPk(id)
+        if(!pessoa) {
+            throw new Error("Pessoa não encontrada")
+        }
+        return pessoa.destroy()
+        // return ModelPessoa.destroy({ where: { id } })
     }
 }
 module.exports = new ServicePessoa()
