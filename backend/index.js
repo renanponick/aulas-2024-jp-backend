@@ -1,9 +1,12 @@
 const express = require('express')
 const routersPerson = require('./src/routes/pessoa')
 const database = require('./src/config/database')
+const cors = require('cors')
 
 const app = express()
 app.use(express.json())
+app.use(cors())
+
 app.use("/person", routersPerson)
 const PORT = 3000
 

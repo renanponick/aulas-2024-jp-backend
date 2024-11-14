@@ -5,6 +5,9 @@ const jwt = require('jsonwebtoken')
 const SALT = 12
 
 class ServicePessoa {
+    async GetPessoaById(id) {
+        return ModelPessoa.findByPk(id)
+    }
     async GetPessoas() {
         return ModelPessoa.findAll()
     }

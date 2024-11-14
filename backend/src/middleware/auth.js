@@ -16,6 +16,7 @@ function auth(req, res, next) {
         }
 
         console.log(decoded)
+        req.session = decoded
 
         next()
     })

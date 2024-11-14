@@ -2,6 +2,15 @@ const ServicePessoa = require('../services/pessoa')
 
 // Criando a classe controller da Pessoa
 class ControllerPessoa {
+    async GetSession(req, res) {
+        try {
+            const id = req.session.id
+            const pessoa = await ServicePessoa.GetPessoaById(id)
+            res.send({ msg: pessoa })
+        } catch (error) {
+            res.status(500).send({ msg: error.message })
+        }
+    }
     async GetPessoas(req, res) {
         try {
             const pessoas = await ServicePessoa.GetPessoas()

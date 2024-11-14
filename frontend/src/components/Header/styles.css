@@ -1,0 +1,52 @@
+header {
+    background-color: #650791;
+    color: white;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: 1em;
+}
+
+header a {
+    background-color: rgb(7, 113, 145);
+    padding: 10px 20px;
+    color: #FFF;
+    border-radius: 20px;
+}
+header a:hover {
+    background-color: rgb(7, 90, 116);
+    color: #FFF;
+}
+
+.menu {
+    background-color: #8b4caf;
+}
+
+.menu ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.menu li{
+    color: white;
+    text-align: center;
+    height: max-content;
+    width: 99%;
+    padding: 0.5%;
+    transition: background-color 1s ease;
+}
+
+.menu a{
+    text-decoration: none;
+    width: 50%;
+    margin: 0;
+}
+
+.menu li:hover {
+    background-color: #70037e;
+}
